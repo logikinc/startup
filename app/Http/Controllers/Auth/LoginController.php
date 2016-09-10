@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Services\ActivationService;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
 
 class LoginController extends Controller
@@ -29,8 +29,8 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-    
-    protected $redirectAfterLogout = '/login';    
+
+    protected $redirectAfterLogout = '/login';
 
     /**
      * Create a new controller instance.
@@ -48,23 +48,23 @@ class LoginController extends Controller
         $this->guard()->logout();
         $request->session()->flush();
         $request->session()->regenerate();
-        
+
         return redirect($this->redirectAfterLogout)->with('warning', 'You have been logged out, bye!');
     }
-    
+
     public function authenticated(Request $request, $user)
     {
-        
         if (!$user->activated) {
             $this->activationService->sendActivationMail($user);
             auth()->logout();
+
             return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
         }
-        
-        activity()->log("User <b>{$user->name}</b> have logged in");   
 
-        session()->flash( 'info', "Welcome, {$user->name}. You have been logged in" );
-        
+        activity()->log("User <b>{$user->name}</b> have logged in");
+
+        session()->flash('info', "Welcome, {$user->name}. You have been logged in");
+
         return redirect()->intended($this->redirectPath());
     }
 
@@ -72,10 +72,10 @@ class LoginController extends Controller
     {
         if ($user = $this->activationService->activateUser($token)) {
             auth()->login($user);
-            
-             activity()->log("User <b>{$user->name}</b> have logged in"); 
-            
-            return redirect($this->redirectPath())->with( 'info', "Welcome, {$user->name}. You have been logged in" );
+
+            activity()->log("User <b>{$user->name}</b> have logged in");
+
+            return redirect($this->redirectPath())->with('info', "Welcome, {$user->name}. You have been logged in");
         }
         abort(404);
     }

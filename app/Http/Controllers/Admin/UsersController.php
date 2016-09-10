@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Spatie\Activitylog\Models\Activity;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use Hash;
 use DB;
+use Hash;
+use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
@@ -25,96 +24,94 @@ class UsersController extends Controller
 
     /**
      * Show the application admin users page.
-     *
      */
     public function index()
     {
         $users = User::paginate(10);
         $roles = Role::all()->pluck('name', 'name');
+
         return view('admin.users.index', compact('users', 'roles'));
     }
-    
+
     /**
      * Show the application admin users edit page.
-     *
-     */    
+     */
     public function edit($id)
     {
         $user = User::find($id);
         $roles = Role::all()->pluck('name', 'name');
         $rolesUser = $user->roles()->pluck('name', 'name')->toArray();
-        return view('admin.users.edit', compact('user','roles', 'rolesUser'));
-    }  
+
+        return view('admin.users.edit', compact('user', 'roles', 'rolesUser'));
+    }
 
     /**
      * Store new user.
-     *
-     */ 
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'name'     => 'required',
+            'email'    => 'required|email|unique:users,email',
             'password' => 'required|same:password_confirm',
-            'roles' => 'required'
+            'roles'    => 'required',
         ]);
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
-            foreach ((array)$request->input('roles') as $role) {
-                $user->assignRole($role);
-            }
-        activity()->log("User <b>{$user->name}</b> has been created");    
+        foreach ((array) $request->input('roles') as $role) {
+            $user->assignRole($role);
+        }
+        activity()->log("User <b>{$user->name}</b> has been created");
 
-        return redirect('admin/users')->with('success', "User successfully created");  
+        return redirect('admin/users')->with('success', 'User successfully created');
     }
-    
+
     /**
      * Update users.
-     *
-     */    
+     */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
+            'name'     => 'required',
+            'email'    => 'required|email|unique:users,email,'.$id,
             'password' => 'same:password_confirm',
-            'roles' => 'required'
+            'roles'    => 'required',
         ]);
 
         $input = $request->all();
-        if(!empty($input['password'])){ 
+        if (!empty($input['password'])) {
             $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = array_except($input,array('password'));    
+        } else {
+            $input = array_except($input, ['password']);
         }
 
         $user = User::find($id);
-        
-        activity()->log("User <b>{$user->name}</b> has been updated");  
-        
-        DB::table('user_has_roles')->where('user_id',$id)->delete();
 
-            foreach ((array)$request->input('roles') as $role) {
-                $user->assignRole($role);
-            }
-            
+        activity()->log("User <b>{$user->name}</b> has been updated");
+
+        DB::table('user_has_roles')->where('user_id', $id)->delete();
+
+        foreach ((array) $request->input('roles') as $role) {
+            $user->assignRole($role);
+        }
+
         $user->update($input);
-        
-        return redirect('admin/users')->with('info', "User successfully updated");  
-    }    
+
+        return redirect('admin/users')->with('info', 'User successfully updated');
+    }
 
     /**
      * Delete users.
-     *
-     */  
+     */
     public function destroy($id)
     {
         $user = User::find($id);
         User::find($id)->delete();
-        activity()->log("User <b>{$user->name}</b> has been deleted");  
-        return redirect('admin/users')->with('info', "User successfully deleted"); 
-    }     
+        activity()->log("User <b>{$user->name}</b> has been deleted");
+
+        return redirect('admin/users')->with('info', 'User successfully deleted');
+    }
 }

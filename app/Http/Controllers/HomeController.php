@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Http\Request;
-
 use Auth;
 
 class HomeController extends Controller
@@ -29,5 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    
 }
