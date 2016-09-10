@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Reset Password
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i> Reset Password
                                 </button>
                             </div>
                         </div>
