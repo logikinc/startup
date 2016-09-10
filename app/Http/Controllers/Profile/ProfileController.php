@@ -95,7 +95,7 @@ class ProfileController extends Controller
 
         $path = public_path('uploads/avatars/'.$filename);
 
-        Image::make($image->getRealPath())->fit(200, 200)->save($path);
+        Image::make($image->getRealPath())->fit(600, 600)->save($path);
         $this->user->profile_photo = $filename;
         $this->user->save();
 
