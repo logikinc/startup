@@ -40,6 +40,14 @@ Before you proceed make sure your server meets the following requirements:
 6. ```php artisan migrate --seed```
 9. Thats it, visit your URL. Log in with one of the users below.
 
+## Default Seeded Users
+
+1. Admin role: admin@example.com / 12345678
+2. Moderator role: moderator@example.com / 12345678
+3. User role: user@example.com / 12345678
+
+All new user registered is getting default User role.
+
 ## Packages used
 
 * [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
