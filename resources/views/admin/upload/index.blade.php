@@ -39,6 +39,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Files <small class="pull-right">All files will be stored in <code>public/uploads</code> folder</small></div>
                     <div class="panel-body">
+                        <div class="table-responsive">
                         <table class="table">
                           <thead>
                             <tr>
@@ -100,6 +101,7 @@
                             @endforeach
                           </tbody>
                         </table>
+                        </div>
                   </div>
                 </div>
               </div>

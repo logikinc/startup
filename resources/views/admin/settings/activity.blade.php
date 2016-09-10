@@ -24,6 +24,7 @@
                 <div class="panel-heading">Activity log</div>
 
                 <div class="panel-body">
+                    <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -51,6 +52,7 @@
                                 @endif
                             </tbody>
                         </table>
+                        </div>
                         {{ $activitys->links() }}
                     </div>  
                 </div>
