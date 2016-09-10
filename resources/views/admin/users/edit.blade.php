@@ -64,6 +64,16 @@
                             @endif                    
                             </div>
                 </div>
+                <div class="form-group{{ $errors->has('activated') ? ' has-error' : '' }}">
+                        <label for="activated" class="col-sm-3 control-label">Activated</label>
+                            <div class="col-sm-6">
+                                {{ Form::hidden('activated', 0, false) }}
+                                {{ Form::checkbox('activated', true) }}
+                            @if ($errors->has('activated'))
+                                <span class="help-block">{{ $errors->first('activated') }}</span>
+                            @endif                    
+                            </div>
+                </div>                   
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
                           <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
