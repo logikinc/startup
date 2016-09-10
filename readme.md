@@ -1,5 +1,7 @@
 ## StartUp 5.3
 
+<img src="https://raw.githubusercontent.com/w00p/startup/master/public/uploads/readme.png" alt="StartUp 5.3">
+
 StartUp 5.3 is a Open Source StartUp Boilerplate built with Laravel 5.3. It is built with the awesome Laravel Framework. It includes roles & permissions,
 user profile,admin backend and much more.
 
@@ -53,8 +55,8 @@ comming soon..
 
 ## Changelog
 
-Detailed changes for each release are documented in the [release notes]().
+Detailed changes for each release are documented in the [release notes](https://github.com/w00p/startup/blob/master/CHANGELOG).
 
 ## License
 
-StartUp 5.3 is open-sourced software licensed under the [MIT license]().
+StartUp 5.3 is open-sourced software licensed under the [MIT license](https://github.com/w00p/startup/blob/master/LICENSE).

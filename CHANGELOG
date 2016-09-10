@@ -2,17 +2,6 @@
 
 All Notable changes to StartUp 5.3 will be documented in this file
 
-## v.1.2 - 09.09.2016
-
-- New feature in admin section; File Uploads
-- Small changes
-
-## v.1.1 - 06.09.2016
-
-- New feature in admin section; Activitylog
-- Fixed body margin-bottom in app.css
-- Small changes.
-
-## v.1.0 - 02.09.2016
+## v.1.0 - 10.09.2016
 
 - Initial Release
