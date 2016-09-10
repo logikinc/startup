@@ -6,6 +6,7 @@ StartUp 5.3 is a Open Source StartUp Boilerplate built with Laravel 5.3. It is b
 user profile,admin backend and much more.
 
 [![StyleCI](https://styleci.io/repos/67250440/shield)](https://styleci.io/repos/67250440)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/w00p/startup/blob/master/LICENSE)
 
 ## Features
 
