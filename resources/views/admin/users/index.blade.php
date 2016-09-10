@@ -21,6 +21,7 @@
                                     <th>Profile Photo</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Activated</th>
                                     <th>Role</th>
                                     <th>Created</th>
                                 </tr>
@@ -31,6 +32,13 @@
                                     <td><img src="/uploads/avatars/{{ $user->profile_photo }}" width="30" height="30" class="img-circle"></td>
                                     <td><a href="/admin/users/{{ $user->id }}/edit">{{ $user->name }}</a></td>
                                     <td>{{ $user->email }}</td>
+                                    <td>
+                                    @if ($user->activated === 1)
+                                        <label class="label label-success">Yes</label>
+                                    @else
+                                        <label class="label label-danger">No</label>
+                                    @endif
+                                    </td>                                    
                                     <td>
                                     @foreach($user->roles as $v)
                                         <label class="label label-primary">{{ $v->name }}</label>
