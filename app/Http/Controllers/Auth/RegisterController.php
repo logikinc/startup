@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Services\ActivationService;
 use App\User;
-use Validator;
-use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
+use Validator;
 
 class RegisterController extends Controller
 {
@@ -33,7 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-    
+
     protected $activationService;
 
     /**
@@ -50,14 +48,15 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -65,40 +64,41 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
         $create = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        
+
         $user = User::find($create->id);
 
-        $user->assignRole('User'); 
-        
-         activity()->log("New user <b>{$user->name}</b> registered");
-        
-        return $create;    
+        $user->assignRole('User');
+
+        activity()->log("New user <b>{$user->name}</b> registered");
+
+        return $create;
     }
-    
+
     public function register(Request $request)
     {
         $validator = $this->validator($request->all());
-    
+
         if ($validator->fails()) {
             $this->throwValidationException(
                 $request, $validator
             );
         }
-    
+
         $user = $this->create($request->all());
-    
+
         $this->activationService->sendActivationMail($user);
-    
+
         return redirect('/login')->with('info', 'We sent you an activation code. Check your email.');
-    }    
+    }
 }

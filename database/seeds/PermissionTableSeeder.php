@@ -12,32 +12,32 @@ class PermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        $createPermission = new Permission;
+        $createPermission = new Permission();
         $createPermission->name = 'view-backend';
         $createPermission->save();
-        
-        $createPermission = new Permission;
+
+        $createPermission = new Permission();
         $createPermission->name = 'view-profile';
         $createPermission->save();
-        
-        $createPermission = new Permission;
+
+        $createPermission = new Permission();
         $createPermission->name = 'manage-users';
         $createPermission->save();
-        
-        $createPermission = new Permission;
+
+        $createPermission = new Permission();
         $createPermission->name = 'manage-settings';
         $createPermission->save();
-        
-        $createPermission = new Permission;
+
+        $createPermission = new Permission();
         $createPermission->name = 'manage-roles';
         $createPermission->save();
-        
-        $createPermission = new Permission;
+
+        $createPermission = new Permission();
         $createPermission->name = 'manage-permissions';
-        $createPermission->save();      
-        
-        $createPermission = new Permission;
+        $createPermission->save();
+
+        $createPermission = new Permission();
         $createPermission->name = 'manage-uploads';
-        $createPermission->save();          
+        $createPermission->save();
     }
 }

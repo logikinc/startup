@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
 {
@@ -30,23 +30,24 @@ class RolesController extends Controller
     {
         $permission = Permission::get();
         $roles = Role::paginate(10);
-        return view('admin.roles.index',compact('roles', 'permission'));
+
+        return view('admin.roles.index', compact('roles', 'permission'));
     }
 
     public function edit($id)
     {
         $role = Role::find($id);
         $permission = Permission::get();
-        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')->toArray();
+        $rolePermissions = DB::table('role_has_permissions')->where('role_has_permissions.role_id', $id)
+            ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')->toArray();
 
-        return view('admin.roles.edit',compact('role','permission','rolePermissions'));
-    }   
-    
+        return view('admin.roles.edit', compact('role', 'permission', 'rolePermissions'));
+    }
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name'       => 'required',
             'permission' => 'required',
         ]);
 
@@ -56,21 +57,20 @@ class RolesController extends Controller
         activity()->log("Role <b>{$role->name}</b> has been updated");
         $role->save();
 
-        DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
+        DB::table('role_has_permissions')->where('role_has_permissions.role_id', $id)
             ->delete();
 
         foreach ($request->input('permission') as $key => $value) {
             $role->givePermissionTo($value);
         }
-        
-        return redirect('admin/roles')->with('info', "Role successfully updated");  
 
-    } 
+        return redirect('admin/roles')->with('info', 'Role successfully updated');
+    }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:roles,name',
+            'name'       => 'required|unique:roles,name',
             'permission' => 'required',
         ]);
 
@@ -83,14 +83,15 @@ class RolesController extends Controller
             $role->givePermissionTo($value);
         }
 
-        return redirect('admin/roles')->with('info', "Role successfully created"); 
-    }    
+        return redirect('admin/roles')->with('info', 'Role successfully created');
+    }
 
     public function destroy($id)
     {
         $role = Role::find($id);
         activity()->log("Role <b>{$role->name}</b> has been deleted");
-        DB::table("roles")->where('id',$id)->delete();
-        return redirect('admin/roles')->with('info', "Role successfully deleted"); 
-    }    
+        DB::table('roles')->where('id', $id)->delete();
+
+        return redirect('admin/roles')->with('info', 'Role successfully deleted');
+    }
 }

@@ -11,46 +11,42 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        
         \DB::table('users')->delete();
-        
-        \DB::table('users')->insert(array (
-            0 =>
-            array (
-                'id' => 1,
-                'activated' => 1,
-                'name' => 'Administrator',
-                'email' => 'admin@example.com',
-                'profile_photo' => 'dummy.png',
-                'password' => bcrypt('12345678'),
+
+        \DB::table('users')->insert([
+            0 => [
+                'id'             => 1,
+                'activated'      => 1,
+                'name'           => 'Administrator',
+                'email'          => 'admin@example.com',
+                'profile_photo'  => 'dummy.png',
+                'password'       => bcrypt('12345678'),
                 'remember_token' => null,
-                'created_at' => '2016-09-06 13:42:19',
-                'updated_at' => '2016-09-06 13:42:19',
-            ),
-           1 =>
-            array (
-                'id' => 2,
-                'activated' => 1,
-                'name' => 'Moderator',
-                'email' => 'moderator@example.com',
-                'profile_photo' => 'dummy.png',
-                'password' => bcrypt('12345678'),
+                'created_at'     => '2016-09-06 13:42:19',
+                'updated_at'     => '2016-09-06 13:42:19',
+            ],
+           1 => [
+                'id'             => 2,
+                'activated'      => 1,
+                'name'           => 'Moderator',
+                'email'          => 'moderator@example.com',
+                'profile_photo'  => 'dummy.png',
+                'password'       => bcrypt('12345678'),
                 'remember_token' => null,
-                'created_at' => '2016-09-06 13:42:19',
-                'updated_at' => '2016-09-06 13:42:19',
-            ),     
-           2 =>
-            array (
-                'id' => 3,
-                'activated' => 1,
-                'name' => 'User',
-                'email' => 'user@example.com',
-                'profile_photo' => 'dummy.png',
-                'password' => bcrypt('12345678'),
+                'created_at'     => '2016-09-06 13:42:19',
+                'updated_at'     => '2016-09-06 13:42:19',
+            ],
+           2 => [
+                'id'             => 3,
+                'activated'      => 1,
+                'name'           => 'User',
+                'email'          => 'user@example.com',
+                'profile_photo'  => 'dummy.png',
+                'password'       => bcrypt('12345678'),
                 'remember_token' => null,
-                'created_at' => '2016-09-06 13:42:19',
-                'updated_at' => '2016-09-06 13:42:19',
-            ),             
-        ));
+                'created_at'     => '2016-09-06 13:42:19',
+                'updated_at'     => '2016-09-06 13:42:19',
+            ],
+        ]);
     }
 }

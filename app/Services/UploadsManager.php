@@ -3,21 +3,19 @@
 namespace App\Services;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
 use Dflydev\ApacheMimeTypes\PhpRepository;
+use Illuminate\Support\Facades\Storage;
 
 class UploadsManager
 {
     protected $disk;
     protected $mimeDetect;
 
-
     public function __construct(PhpRepository $mimeDetect)
     {
         $this->disk = Storage::disk(config('startup.uploads.storage'));
         $this->mimeDetect = $mimeDetect;
     }
-
 
     public function folderInfo($folder)
     {
@@ -46,12 +44,10 @@ class UploadsManager
         return compact('folder', 'folderName', 'breadcrumbs', 'subfolders', 'files');
     }
 
-
     protected function cleanFolder($folder)
     {
         return '/'.trim(str_replace('..', '', $folder), '/');
     }
-
 
     protected function breadcrumbs($folder)
     {
@@ -70,21 +66,19 @@ class UploadsManager
         return $crumbs;
     }
 
-
     protected function fileDetails($path)
     {
         $path = '/'.ltrim($path, '/');
 
         return [
-            'name' => basename($path),
+            'name'     => basename($path),
             'fullPath' => $path,
-            'webPath' => $this->fileWebpath($path),
+            'webPath'  => $this->fileWebpath($path),
             'mimeType' => $this->fileMimeType($path),
-            'size' => $this->fileSize($path),
+            'size'     => $this->fileSize($path),
             'modified' => $this->fileModified($path),
         ];
     }
-
 
     public function fileWebpath($path)
     {
@@ -94,7 +88,6 @@ class UploadsManager
         return url($path);
     }
 
-
     public function fileMimeType($path)
     {
         return $this->mimeDetect->findType(
@@ -102,20 +95,17 @@ class UploadsManager
         );
     }
 
-
     public function fileSize($path)
     {
         return $this->disk->size($path);
     }
 
- 
     public function fileModified($path)
     {
         return Carbon::createFromTimestamp(
             $this->disk->lastModified($path)
         );
     }
-
 
     public function createDirectory($folder)
     {
@@ -127,7 +117,6 @@ class UploadsManager
         return $this->disk->makeDirectory($folder);
     }
 
-
     public function deleteDirectory($folder)
     {
         $folder = $this->cleanFolder($folder);
@@ -135,24 +124,22 @@ class UploadsManager
             $this->disk->directories($folder),
             $this->disk->files($folder)
         );
-        if (! empty($filesFolders)) {
+        if (!empty($filesFolders)) {
             return 'Directory must be empty to delete it.';
         }
 
         return $this->disk->deleteDirectory($folder);
     }
 
-
     public function deleteFile($path)
     {
         $path = $this->cleanFolder($path);
-        if (! $this->disk->exists($path)) {
+        if (!$this->disk->exists($path)) {
             return 'File does not exist.';
         }
 
         return $this->disk->delete($path);
     }
-
 
     public function saveFile($path, $content)
     {
