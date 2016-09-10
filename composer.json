@@ -13,6 +13,12 @@
         "backup"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Kjetil Elde",
+            "email": "kjetile@gmail.com"
+        }
+    ],    
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
