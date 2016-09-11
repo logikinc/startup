@@ -37,9 +37,8 @@
                             <tbody>
                             @foreach($entries as $entry)
                             <tr>
-                                <td><a href="{{route('getdbbackup', $entry->name)}}">{{ env('DB_DATABASE') }}</a></td>
-                                <td>{{ $entry->created_at->format('d-m-Y H:i') }}</td>
-                                <td>{{ human_filesize(Storage::size($entry->name)) }}</td>
+
+                                <td>{{ $entry->created_at->format('d_m_Y_His') }}</td>
                                 <td>
                 		            {!! Form::open(['method' => 'DELETE','route' => ['destroybackup', $entry->id]]) !!}
                                         <a href="#" class="btn btn-danger btn-xs" onclick="$(this).closest('form').submit()"><i class="fa fa-times-circle"></i></a>

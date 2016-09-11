@@ -14,14 +14,15 @@
                 <div class="panel-heading">Users</div>
 
                 <div class="panel-body">
+                    <small>*The Status table header indicates a user <code>online/offline</code> for the last 5 minutes</small>            
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>Profile Photo</th>
                                     <th>Name</th>
-                                    <th>Email</th>
                                     <th>Activated</th>
+                                    <th>Status*</th>
                                     <th>Role</th>
                                     <th>Created</th>
                                 </tr>
@@ -31,14 +32,20 @@
                                 <tr>
                                     <td><img src="/uploads/avatars/{{ $user->profile_photo }}" width="30" height="30" class="img-circle"></td>
                                     <td><a href="/admin/users/{{ $user->id }}/edit">{{ $user->name }}</a></td>
-                                    <td>{{ $user->email }}</td>
                                     <td>
                                     @if ($user->activated === 1)
                                         <label class="label label-success">Yes</label>
                                     @else
                                         <label class="label label-danger">No</label>
                                     @endif
-                                    </td>                                    
+                                    </td>
+                                    <th>
+                                        @if($user->isOnline())
+                                           <label class="label label-success">Online</label>
+                                        @else
+                                        <label class="label label-danger">Offline</label>
+                                        @endif
+                                    </th>
                                     <td>
                                     @foreach($user->roles as $v)
                                         <label class="label label-primary">{{ $v->name }}</label>
