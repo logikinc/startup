@@ -8,5 +8,5 @@ return [
   'backups' => [
     'storage' => 'backup',
     'webpath' => '/backups',
-  ],  
+  ],
 ];
