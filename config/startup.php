@@ -5,4 +5,8 @@ return [
     'storage' => 'public',
     'webpath' => '/uploads',
   ],
+  'backups' => [
+    'storage' => 'backup',
+    'webpath' => '/backups',
+  ],  
 ];

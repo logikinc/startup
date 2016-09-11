@@ -64,6 +64,10 @@ Route::group(['middleware' => ['role:User,view-profile']], function () {
 
                 Route::post('settings/backup/store', [
                     'as' => 'storebackup', 'uses' => 'BackupController@store', ]);
+                    
+                Route::delete('settings/backup/file', 'BackupController@deleteFile'); 
+                
+                Route::delete('settings/backup/folder', 'BackupController@deleteFolder');                    
 
                 Route::DELETE('settings/backup/destroy/{id}', [
                     'as' => 'destroybackup', 'uses' => 'BackupController@destroy', ]);

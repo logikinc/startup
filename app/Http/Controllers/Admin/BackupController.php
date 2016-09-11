@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Artisan;
 use App\Backup;
+use App\Services\BackupManager;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
@@ -10,51 +13,72 @@ use Spatie\Activitylog\Models\Activity;
 
 class BackupController extends Controller
 {
-    public function __construct()
+    protected $manager;
+
+    public function __construct(BackupManager $manager)
     {
+        $this->manager = $manager;
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $entries = Backup::orderBy('created_at', 'desc')->paginate(10);
+        $folder = $request->get('folder');
+        $data = $this->manager->folderInfo($folder);
 
-        return view('admin.settings.backup', compact('entries'));
+        return view('admin.settings.backup', $data);
     }
 
     public function store()
     {
-        $string = str_random(10);
-        \Spatie\DbDumper\Databases\MySql::create()
-            ->setDbName(env('DB_DATABASE'))
-            ->setUserName(env('DB_USERNAME'))
-            ->setPassword(env('DB_PASSWORD'))
-            ->dumpToFile('../storage/app/'.$string.'.sql');
+        
+        Artisan::call('backup:run', []);
 
-        $backup = new Backup();
-        $backup->name = $string.'.sql';
-        $backup->save();
-
-        activity()->log("New backup <b>{$backup->name}</b> has been created");
+        activity()->log("New backup has been created");
 
         return redirect('admin/settings/backup')->with('info', 'Backup successfully created');
     }
 
-    public function get($name)
+    public function deleteFile(Request $request)
     {
-        $entry = Backup::where('name', '=', $name)->firstOrFail();
-        $file = Storage::disk('local')->get($entry->name);
+        $del_file = $request->get('del_file');
+        $path = $request->get('folder').'/'.$del_file;
 
-        return response($file, 200, ['Content-Type' => 'application/octet-stream']);
+        $result = $this->manager->deleteFile($path);
+
+        if ($result === true) {
+            activity()->log("File <b>{$del_file}</b> deleted");
+
+            return redirect()
+          ->back()
+          ->withSuccess("File '$del_file' deleted.");
+        }
+
+        $error = $result ?: 'An error occurred deleting file.';
+
+        return redirect()
+        ->back()
+        ->withErrors([$error]);
     }
-
-    public function destroy($id)
+    public function deleteFolder(Request $request)
     {
-        $entry = Backup::findOrFail($id);
-        Storage::disk('local')->delete($entry->name);
-        activity()->log("Backup <b>{$entry->name}</b> has been deleted");
-        Backup::find($id)->delete();
+        $del_folder = $request->get('del_folder');
+        $folder = $request->get('folder').'/'.$del_folder;
 
-        return redirect('admin/settings/backup')->with('info', 'Backup successfully deleted');
-    }
+        $result = $this->manager->deleteDirectory($folder);
+
+        if ($result === true) {
+            activity()->log("Folder <b>{$del_folder}</b> deleted");
+
+            return redirect()
+          ->back()
+          ->withSuccess("Folder '$del_folder' deleted.");
+        }
+
+        $error = $result ?: 'An error occurred deleting directory.';
+
+        return redirect()
+        ->back()
+        ->withErrors([$error]);
+    }    
 }

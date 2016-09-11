@@ -8,59 +8,105 @@
         </div>
         
         @include('admin.partials.nav')
-       
+
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Settings</div>
-
-                <div class="panel-body">
-
-                @include('admin.partials.settings_nav')
-
-                </div>      
+                <div class="panel-heading">Backup
+                    </div> 
+                    <div class="panel-body">
+                    
+                    @include('admin.partials.settings_nav')            
+                                
+                </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Backup <small class="pull-right">All database backup files will be stored in <code>storage/app</code> folder</small></div>
-
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Database</th>
-                                    <th>Created</th>
-                                    <th>Size</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($entries as $entry)
-                            <tr>
-                                <td><a href="{{route('getdbbackup', $entry->name)}}">{{ env('DB_DATABASE') }}</a></td>
-                                <td>{{ $entry->created_at->format('d-m-Y H:i') }}</td>
-                                <td>{{ human_filesize(Storage::size($entry->name)) }}</td>
-                                <td>
-                		            {!! Form::open(['method' => 'DELETE','route' => ['destroybackup', $entry->id]]) !!}
-                                        <a href="#" class="btn btn-danger btn-xs" onclick="$(this).closest('form').submit()"><i class="fa fa-times-circle"></i></a>
-                                    {!! Form::close() !!}                                    
-                                </td>
-                            </tr>    
-                            @endforeach
-                            </tbody>
-                        </table> 
-                        </div>
-                            <div class="pull-right">
-                            {{ $entries->links() }}
-                            </div>                           
-                                {!! Form::open(array('route' => 'storebackup','method'=>'POST')) !!}    
-                                    <button type="submit" class="btn btn-primary">
-                                       <i class="fa fa-plus-circle"></i> Create new backup
-                                    </button>          
-                                {!! Form::close() !!}
+                <div class="panel-heading">Backupfiles
+                    <div class="pull-right">
+                                {!! Form::open(array('route' => 'storebackup','method'=>'POST')) !!}                         
+                            <button type="submit" class="btn btn-success btn-xs">
+                              <i class="fa fa-plus-circle"></i> Take backup
+                            </button>
+                                {!! Form::close() !!} 
+                    </div>                 
                 </div>
+                    <div class="panel-body">
+                        <p><small>All files will be stored in <code>public/backups</code> folder. This is not the most secure place to stor backups. So change this to S3 or to another location.</small></p>
+                  <ul class="breadcrumb">
+                    @foreach ($breadcrumbs as $path => $disp)
+                      <li><a href="/admin/settings/backup?folder={{ $path }}">{{ $disp }}</a></li>
+                    @endforeach
+                    <li class="active">{{ $folderName }}</li>
+                  </ul> 
+                        <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th>Date</th>
+                              <th>Size</th>
+                              <th data-sortable="false">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($subfolders as $path => $name)
+                              <tr>
+                                <td>
+                                  <a href="/admin/settings/backup?folder={{ $path }}">
+                                    <i class="fa fa-folder fa-lg fa-fw"></i>
+                                    {{ $name }}
+                                  </a>
+                                </td>
+                                <td>Folder</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>
+                                  <button type="button" class="btn btn-xs btn-danger"
+                                          onclick="delete_folder('{{ $name }}')">
+                                    <i class="fa fa-times-circle"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                            @endforeach                              
+                            @foreach ($files as $file)
+                              <tr>
+                                <td>
+                                  <a href="{{ $file['webPath'] }}">
+                                    @if (is_image($file['mimeType']))
+                                      <i class="fa fa-file-image-o fa-lg fa-fw"></i>
+                                    @else
+                                      <i class="fa fa-file-o fa-lg fa-fw"></i>
+                                    @endif
+                                    {{ $file['name'] }}
+                                  </a>
+                                </td>
+                                <td>{{ $file['mimeType'] or 'Unknown' }}</td>
+                                <td>{{ $file['modified']->format('d-m-Y H:i') }}</td>
+                                <td>{{ human_filesize($file['size']) }}</td>
+                                <td>
+                                  <button type="button" class="btn btn-xs btn-danger"
+                                          onclick="delete_file('{{ $file['name'] }}')">
+                                    <i class="fa fa-times-circle"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                        </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+          </div>
+  @include('admin.settings.modals.deletefile')
+  @include('admin.settings.modals.deletefolder')
+
+@stop
+
+@section('scripts')
+
+@include('admin.settings.partials.js')
+
+@stop
