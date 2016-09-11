@@ -1,7 +1,11 @@
 /node_modules
 /public/storage
+/public/backups/*
+/public/uploads/*
 /vendor
 /.idea
+
+Thumbs.db
 Homestead.json
 Homestead.yaml
 .env
