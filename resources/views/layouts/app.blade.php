@@ -106,7 +106,7 @@
       </p>
       
       <a href="{{ config('app.url', 'http://localhost') }}" class="navbar-text pull-right">
-      Version 1.0</a>
+      Version 1.1</a>
     </div>
     
     
