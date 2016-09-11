@@ -2,6 +2,11 @@
 
 All Notable changes to StartUp 5.3 will be documented in this file
 
+## v.1.1 - 11.09.2016
+- New feature, can now se online users for the last 5 minutes
+- Updated admin backup section, now backup both files and sql into one zip file.
+- Small changes to files.
+
 ## v.1.0 - 10.09.2016
 
 - Initial Release
