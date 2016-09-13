@@ -53,7 +53,7 @@ class ProfileController extends Controller
         $values = $request->all();
         $this->user->fill($values)->save();
 
-        return redirect()->back()->with('info', 'Contact Information successfully updated');
+        return redirect()->back()->with('info', trans('startup.notifications.profile.contact_info'));
     }
 
     /**
@@ -76,7 +76,7 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->back()->with('info', 'Password successfully updated');
+        return redirect()->back()->with('info', trans('startup.notifications.profile.password_update'));
     }
 
     /**
@@ -99,6 +99,6 @@ class ProfileController extends Controller
         $this->user->profile_photo = $filename;
         $this->user->save();
 
-        return redirect()->back()->with('info', 'Profile Photo successfully updated');
+        return redirect()->back()->with('info', trans('startup.notifications.profile.profile_photo'));
     }
 }
