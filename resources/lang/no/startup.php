@@ -145,7 +145,7 @@ return [
             'backup'                => 'Backup',
             'backupfiles'           => 'Backupfiler',
             'take_backup'           => 'Ta backup',
-            'message'               => 'Alle filer blir lagret i <code>public/backups</code> mappen. Dette er ikke den mest skikre plassen å lagre backups. Endre dette til S3 eller annen mappe.',
+            'message'               => 'Alle filer blir lagret i public/backups mappen. Dette er ikke den mest skikre plassen å lagre backups. Endre dette til S3 eller annen mappe.',
         ],
     ],
 

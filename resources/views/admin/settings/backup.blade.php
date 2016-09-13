@@ -21,7 +21,7 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('startup.pages.admin_backup.backupfiles') }} 
+                <div class="panel-heading">{{ trans('startup.pages.admin_backup.backupfiles') }}(<a href="#" data-toggle="tooltip" title="{!! trans('startup.pages.admin_backup.message') !!}">?</a>) 
                     <div class="pull-right">
                                 {!! Form::open(array('route' => 'storebackup','method'=>'POST')) !!}                         
                             <button type="submit" class="btn btn-success btn-xs">
@@ -31,7 +31,6 @@
                     </div>                 
                 </div>
                     <div class="panel-body">
-                        <p><small>{!! trans('startup.pages.admin_backup.message') !!} </small></p>
                   <ul class="breadcrumb">
                     @foreach ($breadcrumbs as $path => $disp)
                       <li><a href="/admin/settings/backup?folder={{ $path }}">{{ $disp }}</a></li>

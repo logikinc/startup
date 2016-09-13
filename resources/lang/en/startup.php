@@ -145,7 +145,7 @@ return [
             'backup'                => 'Backup',
             'backupfiles'           => 'Backupfiles',
             'take_backup'           => 'Take Backup',
-            'message'               => 'All files will be stored in <code>public/backups</code> folder. This is not the most secure place to stor backups. So change this to S3 or to another location.',
+            'message'               => 'All files will be stored in public/backups folder. This is not the most secure place to stor backups. So change this to S3 or to another location.',
         ],
     ],
 
