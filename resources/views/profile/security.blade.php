@@ -14,7 +14,7 @@
         <div class="col-md-9">
             
             <div class="panel panel-default">
-                <div class="panel-heading">Password</div>
+                <div class="panel-heading">{{ trans('startup.password') }}</div>
 
                 <div class="panel-body">
                     
@@ -23,7 +23,7 @@
                 {!! csrf_field() !!}
                 
                       <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <label for="password" class="col-sm-3 control-label">Current password</label>
+                        <label for="password" class="col-sm-3 control-label">{{ trans('startup.password_current') }}</label>
                         <div class="col-sm-6">
                           <input type="password" class="form-control" id="password" name="password" placeholder="********">
                              @if ($errors->has('password'))
@@ -33,7 +33,7 @@
                       </div>
 
 					   <div class="form-group{{ $errors->has('new_password') ? ' has-error' : '' }}">
-                        <label for="new_password" class="col-sm-3 control-label">New password</label>
+                        <label for="new_password" class="col-sm-3 control-label">{{ trans('startup.password_new') }}</label>
                         <div class="col-sm-6">
                           <input type="password" class="form-control" id="new_password" name="new_password" placeholder="********">
                              @if ($errors->has('new_password'))
@@ -43,7 +43,7 @@
                       </div>
 					  
                       <div class="form-group{{ $errors->has('new_password_confirmation') ? ' has-error' : '' }}">
-                        <label for="new_password" class="col-sm-3 control-label">Confirm New Password</label>
+                        <label for="new_password" class="col-sm-3 control-label">{{ trans('startup.password_confirm_new') }}</label>
                         <div class="col-sm-6">
                           <input type="password" class="form-control" name="new_password_confirmation" id="new_password_confirmation" placeholder="********">
                              @if ($errors->has('new_password_confirmation'))
@@ -53,7 +53,7 @@
                       </div>
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                          <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
+                          <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{ trans('startup.update') }}</button>
                         </div>
                       </div>                      
                     {!! Form::close() !!}
