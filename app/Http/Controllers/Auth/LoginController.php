@@ -63,7 +63,7 @@ class LoginController extends Controller
 
         activity()->log("User <b>{$user->name}</b> have logged in");
 
-        session()->flash('info', trans('startup.notifications.login.welcome',['user' => $user->name]));
+        session()->flash('info', trans('startup.notifications.login.welcome', ['user' => $user->name]));
 
         return redirect()->intended($this->redirectPath());
     }
@@ -75,7 +75,7 @@ class LoginController extends Controller
 
             activity()->log("User <b>{$user->name}</b> have logged in");
 
-            return redirect($this->redirectPath())->with('info', trans('startup.notifications.login.welcome',['user' => $user->name]));
+            return redirect($this->redirectPath())->with('info', trans('startup.notifications.login.welcome', ['user' => $user->name]));
         }
         abort(404);
     }
