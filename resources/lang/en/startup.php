@@ -13,36 +13,36 @@ return [
 
     /* General */
     'password'              => 'Password',
-    'password_current'      => 'Current Password',  
-    'password_new'          => 'New Password',    
+    'password_current'      => 'Current Password',
+    'password_new'          => 'New Password',
     'password_confirm'      => 'Confirm Password',
-    'password_confirm_new'  => 'Confirm New Password',    
+    'password_confirm_new'  => 'Confirm New Password',
     'email'                 => 'E-mail Address',
-    'name'                  => 'Name',    
-    'update'                => 'Update',    
+    'name'                  => 'Name',
+    'update'                => 'Update',
     'created'               => 'Created',
     'yes'                   => 'Yes',
     'no'                    => 'No',
     'name'                  => 'Name',
     'activated'             => 'Activated',
     'status'                => 'Status',
-    'role'                  => 'Role', 
-    'roles'                 => 'Roles',     
+    'role'                  => 'Role',
+    'roles'                 => 'Roles',
     'online'                => 'Online',
-    'offline'               => 'Offline',    
-    'close'                 => 'Close',    
+    'offline'               => 'Offline',
+    'close'                 => 'Close',
     'delete'                => 'Delete',
-    'id'                    => 'Id', 
-    'cancel'                => 'Cancel',   
+    'id'                    => 'Id',
+    'cancel'                => 'Cancel',
     'permission'            => 'Permission',
-    'permissions'           => 'Permissions',    
+    'permissions'           => 'Permissions',
     'type'                  => 'Type',
     'date'                  => 'Date',
     'size'                  => 'Size',
     'action'                => 'Action',
     'folder'                => 'Folder',
     'time'                  => 'Time',
-    
+
     /* Notifications */
     'notifications' => [
         'login' => [
@@ -51,39 +51,39 @@ return [
         ],
         'register' => [
             'confirm_account'           => 'You need to confirm your account. We have sent you an activation code, please check your email',
-            'activation_code'           => 'We sent you an activation code. Check your email'
+            'activation_code'           => 'We sent you an activation code. Check your email',
         ],
         'profile' => [
             'contact_info'              => 'Contact Information successfully updated',
-            'password_update'           => 'Password successfully updated',   
-            'profile_photo'             => 'Profile Photo successfully updated'
-        ],      
+            'password_update'           => 'Password successfully updated',
+            'profile_photo'             => 'Profile Photo successfully updated',
+        ],
         'admin_users' => [
             'created'                   => 'User successfully created',
-            'updated'                   => 'User successfully updated',   
-            'deleted'                   => 'User successfully deleted'
-        ], 
+            'updated'                   => 'User successfully updated',
+            'deleted'                   => 'User successfully deleted',
+        ],
         'admin_settings' => [
             'updated'                   => 'Settings successfully updated',
-        ],  
+        ],
         'admin_roles' => [
             'created'                   => 'Role successfully created',
-            'updated'                   => 'Role successfully updated',   
-            'deleted'                   => 'Role successfully deleted'
-        ],  
+            'updated'                   => 'Role successfully updated',
+            'deleted'                   => 'Role successfully deleted',
+        ],
         'admin_permissions' => [
             'created'                   => 'Permission successfully created',
-            'updated'                   => 'Permission successfully updated',   
-            'deleted'                   => 'Permission successfully deleted'
-        ],   
+            'updated'                   => 'Permission successfully updated',
+            'deleted'                   => 'Permission successfully deleted',
+        ],
         'admin_backup' => [
             'created'                   => 'Backup successfully created',
-        ],           
-    ], 
+        ],
+    ],
 
     /* Languages */
-    'norwegian'     =>  'Norwegian',
-    'english'       =>  'English',
+    'norwegian'     => 'Norwegian',
+    'english'       => 'English',
 
     /* Pages */
     'pages' => [
@@ -100,12 +100,12 @@ return [
             'profile_photo'         => 'Profile Photo',
             'contact_info'          => 'Contact Informasjon',
             'browse'                => 'Browse',
-            'change_photo'          => 'Change Photo'
-        ],     
+            'change_photo'          => 'Change Photo',
+        ],
         'admin_dashboard' => [
             'title'                 => 'Dashboard',
-            'welcome'               => 'You are now viewing the admin section!',            
-        ],         
+            'welcome'               => 'You are now viewing the admin section!',
+        ],
         'admin_users' => [
             'title'                 => 'Users',
             'status_text'           => 'Status indicates a user online/offline for the last 5 minutes.',
@@ -113,30 +113,30 @@ return [
             'create_user'           => 'Create User',
             'edit_user'             => 'Edit user',
             'delete_user'           => 'Delete User',
-            'delete_confirm'        => 'Are you sure you want to delete this user?',            
-        ],           
+            'delete_confirm'        => 'Are you sure you want to delete this user?',
+        ],
         'admin_permissions' => [
             'title'                 => 'Permissions',
             'create_permissions'    => 'Create Permission',
-            'edit_permission'       => 'Edit Permission', 
+            'edit_permission'       => 'Edit Permission',
             'delete_permission'     => 'Delete permission',
-            'delete_confirm'        => 'Are you sure you want to delete this permission?',             
-        ],       
+            'delete_confirm'        => 'Are you sure you want to delete this permission?',
+        ],
         'admin_roles' => [
             'title'                 => 'Roles',
-            'create_role'           => 'Create Role',   
-            'edit_role'             => 'Edit Role', 
-            'delete_role'           => 'Delete Role',     
-            'delete_confirm'        => 'Are you sure you want to delete this role?',             
-        ], 
+            'create_role'           => 'Create Role',
+            'edit_role'             => 'Edit Role',
+            'delete_role'           => 'Delete Role',
+            'delete_confirm'        => 'Are you sure you want to delete this role?',
+        ],
         'admin_uploads' => [
             'title'                 => 'Uploads',
             'new_folder'            => 'New Folder',
-            'upload'                => 'Upload', 
+            'upload'                => 'Upload',
             'upload_new'            => 'Upload New File',
             'file'                  => 'File',
-            'optional'              => 'Optional Filename',  
-            'upload_file'           => 'Upload File',  
+            'optional'              => 'Optional Filename',
+            'upload_file'           => 'Upload File',
             'create_folder'         => 'Create Folder',
             'create_new_folder'     => 'Create New Folder',
             'folder_name'           => 'Folder Name',
@@ -144,84 +144,84 @@ return [
             'delete_file_confirm'   => 'Please Confirm',
             'delete_message'        => 'Are you sure you want to delete the',
             'file'                  => 'file?',
-            'folder'                => 'folder?',            
-            'delete_file'           => 'Delete file', 
+            'folder'                => 'folder?',
+            'delete_file'           => 'Delete file',
             'delete_folder'         => 'Delete folder',
-            'image_prew'            => 'Image Preview',            
-        ],   
+            'image_prew'            => 'Image Preview',
+        ],
         'admin_settings' => [
             'settings'              => 'Settings',
-            'global'                => 'Global',      
+            'global'                => 'Global',
             'title'                 => 'Title',
             'url'                   => 'URL',
             'timezone'              => 'Timezone',
-            'settings_text'         => 'These settings are taken from config\app.php',            
-        ],           
+            'settings_text'         => 'These settings are taken from config\app.php',
+        ],
         'admin_activity' => [
             'activity'              => 'Activity',
             'who'                   => 'Who',
-            'activity_log'          => 'Activity log',            
-        ],  
+            'activity_log'          => 'Activity log',
+        ],
         'admin_backup' => [
             'backup'                => 'Backup',
-            'backupfiles'           => 'Backupfiles',  
+            'backupfiles'           => 'Backupfiles',
             'take_backup'           => 'Take Backup',
-            'message'               => 'All files will be stored in public/backups folder. This is not the most secure place to stor backups. So change this to S3 or to another location.'
-        ],        
-    ],  
-    
+            'message'               => 'All files will be stored in public/backups folder. This is not the most secure place to stor backups. So change this to S3 or to another location.',
+        ],
+    ],
+
     /* NAV */
     'nav' => [
         'front' => [
             'home'          => 'Home',
-            'login'         => 'Login',  
-            'register'      => 'Register',  
-            'language'      => 'Language', 
+            'login'         => 'Login',
+            'register'      => 'Register',
+            'language'      => 'Language',
             'profile'       => 'My Profile',
-            'admin'         => 'Admin',   
-            'logout'        => 'Logout',             
+            'admin'         => 'Admin',
+            'logout'        => 'Logout',
         ],
         'back' => [
             'administration'    => 'Administration',
-            'dashboard'         => 'Dashboard',  
-            'users'             => 'Users', 
-            'roles'             => 'Roles', 
-            'permissions'       => 'Permissions', 
-            'uploads'           => 'Uploads', 
-            'settings'          => 'Settings', 
-            'global'            => 'Global', 
+            'dashboard'         => 'Dashboard',
+            'users'             => 'Users',
+            'roles'             => 'Roles',
+            'permissions'       => 'Permissions',
+            'uploads'           => 'Uploads',
+            'settings'          => 'Settings',
+            'global'            => 'Global',
             'activity'          => 'Activity',
             'backup'            => 'Backup',
-        ],          
+        ],
         'profile' => [
             'profile'          => 'My Profile',
-            'security'         => 'Security',  
-            'settings'         => 'Settings'            
-        ],        
-    ], 
-    
+            'security'         => 'Security',
+            'settings'         => 'Settings',
+        ],
+    ],
+
     /* Login page */
     'auth' => [
         'login' => [
             'remember_me'       => 'Remember Me',
             'login'             => 'Login',
-            'forgot_password'   => 'Forgot Your Password?'
+            'forgot_password'   => 'Forgot Your Password?',
         ],
-        
-        /* Register page */        
+
+        /* Register page */
         'register' => [
-            'register'          => 'Register'
-        ], 
-        
-        /* Password reset page */          
+            'register'          => 'Register',
+        ],
+
+        /* Password reset page */
         'password_reset' => [
             'reset'          => 'Reset Password',
-            'send_password'  => 'Send Password Reset Link'
-        ],         
+            'send_password'  => 'Send Password Reset Link',
+        ],
     ],
-    
-    /* Footer */    
-    'built_with'    =>  'Built with',
-    'and'           =>  'and',
-    'version'       =>  'Version'
+
+    /* Footer */
+    'built_with'    => 'Built with',
+    'and'           => 'and',
+    'version'       => 'Version',
 ];
