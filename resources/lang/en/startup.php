@@ -134,7 +134,7 @@ return [
             'title'                 => 'Title',
             'url'                   => 'URL',
             'timezone'              => 'Timezone',
-            'settings_text'         => 'These settings are taken from <code>config\app.php</code>',
+            'settings_text'         => 'These settings are taken from config\app.php',
         ],
         'admin_activity' => [
             'activity'              => 'Activity',

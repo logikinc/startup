@@ -134,7 +134,7 @@ return [
             'title'                 => 'Tittel',
             'url'                   => 'URL',
             'timezone'              => 'Tidssone',
-            'settings_text'         => 'Disse innstillingene er hentet fra <code>config\app.php</code>',
+            'settings_text'         => 'Disse innstillingene er hentet fra config\app.php',
         ],
         'admin_activity' => [
             'activity'              => 'Aktivitet',

@@ -28,7 +28,7 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('startup.pages.admin_settings.global') }} <small class="pull-right">{!! trans('startup.pages.admin_settings.settings_text') !!}</small></div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_settings.global') }}(<a href="#" data-toggle="tooltip" title="{!! trans('startup.pages.admin_settings.settings_text') !!}">?</a>)</div>
 
                 <div class="panel-body">
                     
