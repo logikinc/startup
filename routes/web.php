@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/setlang/{lang}', function($lang)
-{
+Route::get('/setlang/{lang}', function ($lang) {
     Session::put('locale', $lang);
+
     return redirect()->back();
 });
 
