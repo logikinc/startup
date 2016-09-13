@@ -64,7 +64,7 @@ class RolesController extends Controller
             $role->givePermissionTo($value);
         }
 
-        return redirect('admin/roles')->with('info', 'Role successfully updated');
+        return redirect('admin/roles')->with('info', trans('startup.notifications.admin_roles.updated'));
     }
 
     public function store(Request $request)
@@ -83,7 +83,7 @@ class RolesController extends Controller
             $role->givePermissionTo($value);
         }
 
-        return redirect('admin/roles')->with('info', 'Role successfully created');
+        return redirect('admin/roles')->with('info', trans('startup.notifications.admin_roles.created'));
     }
 
     public function destroy($id)
@@ -92,6 +92,6 @@ class RolesController extends Controller
         activity()->log("Role <b>{$role->name}</b> has been deleted");
         DB::table('roles')->where('id', $id)->delete();
 
-        return redirect('admin/roles')->with('info', 'Role successfully deleted');
+        return redirect('admin/roles')->with('info', trans('startup.notifications.admin_roles.deleted'));
     }
 }

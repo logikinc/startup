@@ -66,7 +66,7 @@ class UsersController extends Controller
         }
         activity()->log("User <b>{$user->name}</b> has been created");
 
-        return redirect('admin/users')->with('success', 'User successfully created');
+        return redirect('admin/users')->with('success', trans('startup.notifications.admin_users.created'));
     }
 
     /**
@@ -100,7 +100,7 @@ class UsersController extends Controller
 
         $user->update($input);
 
-        return redirect('admin/users')->with('info', 'User successfully updated');
+        return redirect('admin/users')->with('info', trans('startup.notifications.admin_users.updated'));
     }
 
     /**
@@ -112,6 +112,6 @@ class UsersController extends Controller
         User::find($id)->delete();
         activity()->log("User <b>{$user->name}</b> has been deleted");
 
-        return redirect('admin/users')->with('info', 'User successfully deleted');
+        return redirect('admin/users')->with('info', trans('startup.notifications.admin_users.deleted'));
     }
 }

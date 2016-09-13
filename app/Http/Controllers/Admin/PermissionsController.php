@@ -49,7 +49,7 @@ class PermissionsController extends Controller
         activity()->log("Permission <b>{$permission->name}</b> has been created");
         $permission->save();
 
-        return redirect('admin/permissions')->with('info', 'Permission successfully created');
+        return redirect('admin/permissions')->with('info', trans('startup.notifications.admin_permissions.created'));
     }
 
     public function update(Request $request, $id)
@@ -63,7 +63,7 @@ class PermissionsController extends Controller
         activity()->log("Permission <b>{$permission->name}</b> has been updated");
         $permission->save();
 
-        return redirect('admin/permissions')->with('info', 'Permission successfully updated');
+        return redirect('admin/permissions')->with('info', trans('startup.notifications.admin_permissions.updated'));
     }
 
     public function destroy($id)
@@ -72,6 +72,6 @@ class PermissionsController extends Controller
         Permission::find($id)->delete();
         activity()->log("Permission <b>{$permission->name}</b> has been deleted");
 
-        return redirect('admin/permissions')->with('info', 'Permission successfully deleted');
+        return redirect('admin/permissions')->with('info', trans('startup.notifications.admin_permissions.deleted'));
     }
 }

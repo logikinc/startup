@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Backup;
-use App\Http\Controllers\Controller;
-use App\Services\BackupManager;
 use Artisan;
+use App\Backup;
+use App\Services\BackupManager;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\Models\Activity;
 
 class BackupController extends Controller
@@ -29,11 +31,12 @@ class BackupController extends Controller
 
     public function store()
     {
+        
         Artisan::call('backup:run', []);
 
-        activity()->log('New backup has been created');
+        activity()->log("New backup has been created");
 
-        return redirect('admin/settings/backup')->with('info', 'Backup successfully created');
+        return redirect('admin/settings/backup')->with('info', trans('startup.notifications.admin_backup.created'));
     }
 
     public function deleteFile(Request $request)
@@ -57,7 +60,6 @@ class BackupController extends Controller
         ->back()
         ->withErrors([$error]);
     }
-
     public function deleteFolder(Request $request)
     {
         $del_folder = $request->get('del_folder');
@@ -78,5 +80,5 @@ class BackupController extends Controller
         return redirect()
         ->back()
         ->withErrors([$error]);
-    }
+    }    
 }

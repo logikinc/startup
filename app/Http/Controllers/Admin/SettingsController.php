@@ -48,7 +48,7 @@ class SettingsController extends Controller
 
         activity()->log('<b>Global</b> settings has been updated');
 
-        return redirect('admin/settings')->with('success', 'Settings successfully updated');
+        return redirect('admin/settings')->with('success', trans('startup.notifications.admin_settings.updated'));
     }
 
     public function activity()
