@@ -37,7 +37,7 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('startup.pages.admin_uploads.title') }} <small class="pull-right">{!! trans('startup.pages.admin_uploads.uploads_message') !!}</small></div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_uploads.title') }}(<a href="#" data-toggle="tooltip" title="{!! trans('startup.pages.admin_uploads.uploads_message') !!}">?</a>)</div>
                     <div class="panel-body">
                         <div class="table-responsive">
                         <table class="table">

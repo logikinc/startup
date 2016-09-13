@@ -119,7 +119,7 @@ return [
             'create_folder'         => 'Opprett mappe',
             'create_new_folder'     => 'Opprett ny mappe',
             'folder_name'           => 'Mappenavn',
-            'uploads_message'       => 'Alle filene vil bli lagret under <code>public/uploads</code> mappen',
+            'uploads_message'       => 'Alle filene vil bli lagret under public/uploads mappen',
             'delete_file_confirm'   => 'Vennligst bekreft',
             'delete_message'        => 'Er du sikker på du vil slette',
             'file?'                 => 'filen?',

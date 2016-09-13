@@ -119,7 +119,7 @@ return [
             'create_folder'         => 'Create Folder',
             'create_new_folder'     => 'Create New Folder',
             'folder_name'           => 'Folder Name',
-            'uploads_message'       => 'All files will be stored in <code>public/uploads</code> folder',
+            'uploads_message'       => 'All files will be stored in public/uploads folder',
             'delete_file_confirm'   => 'Please Confirm',
             'delete_message'        => 'Are you sure you want to delete the',
             'file'                  => 'file?',
