@@ -99,6 +99,6 @@ class RegisterController extends Controller
 
         $this->activationService->sendActivationMail($user);
 
-        return redirect('/login')->with('info', 'We sent you an activation code. Check your email.');
+        return redirect('/login')->with('info', trans('startup.notifications.register.activation_code'));
     }
 }

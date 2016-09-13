@@ -49,7 +49,7 @@ class LoginController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
 
-        return redirect($this->redirectAfterLogout)->with('warning', 'You have been logged out, bye!');
+        return redirect($this->redirectAfterLogout)->with('warning', trans('startup.notifications.login.logout'));
     }
 
     public function authenticated(Request $request, $user)
@@ -58,12 +58,12 @@ class LoginController extends Controller
             $this->activationService->sendActivationMail($user);
             auth()->logout();
 
-            return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
+            return back()->with('warning', trans('startup.notifications.register.confirm_account'));
         }
 
         activity()->log("User <b>{$user->name}</b> have logged in");
 
-        session()->flash('info', "Welcome, {$user->name}. You have been logged in");
+        session()->flash('info', trans('startup.notifications.login.welcome',['user' => $user->name]));
 
         return redirect()->intended($this->redirectPath());
     }
@@ -75,7 +75,7 @@ class LoginController extends Controller
 
             activity()->log("User <b>{$user->name}</b> have logged in");
 
-            return redirect($this->redirectPath())->with('info', "Welcome, {$user->name}. You have been logged in");
+            return redirect($this->redirectPath())->with('info', trans('startup.notifications.login.welcome',['user' => $user->name]));
         }
         abort(404);
     }
