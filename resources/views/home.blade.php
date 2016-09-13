@@ -5,33 +5,35 @@
     <div class="row">
         
         <div class="col-md-8 col-md-offset-2">
-            
+
                 @include('layouts.partials.alerts') 
             
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">{{ trans('startup.pages.home.dashboard') }}
+
+                </div>
 
                 <div class="panel-body">
-                    <p>You are logged in, welcome!</p>
+                    <p>{{ trans('startup.pages.home.welcome') }}</p>
                     
                     @hasrole('User')
                     <hr>
                     <p>
-                    If you can reed this, then you have the <b>User Role</b>    
+                    {{ trans('startup.pages.home.read_role_user') }}</b>    
                     </p>
                     @endrole
                     
                     @hasrole('Moderator')
                     <hr>
                     <p>
-                    If you can reed this, then you have the <b>Moderator Role</b>    
+                    {{ trans('startup.pages.home.read_role_moderator') }}   
                     </p>
                     @endrole  
                     
                     @hasrole('Administrator')
                     <hr>
                     <p>
-                    If you can reed this, then you have the <b>Administrator Role</b>   
+                    {{ trans('startup.pages.home.read_role_administrator') }} 
                     </p>
                     @endrole                    
                 </div>
