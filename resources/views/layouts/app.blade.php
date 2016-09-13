@@ -136,6 +136,11 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="/js/startup.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+    </script>      
 @yield('scripts')  
 </body>
 </html>

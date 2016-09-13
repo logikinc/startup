@@ -87,7 +87,7 @@ return [
         ],
         'admin_users' => [
             'title'                 => 'Users',
-            'status_text'           => '*Status indicates a user <code>online/offline</code> for the last 5 minutes.',
+            'status_text'           => 'Status indicates a user online/offline for the last 5 minutes.',
             'profile_photo'         => 'Profile Photo',
             'create_user'           => 'Create User',
             'edit_user'             => 'Edit user',

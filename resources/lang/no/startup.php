@@ -87,7 +87,7 @@ return [
         ],
         'admin_users' => [
             'title'                 => 'Brukere',
-            'status_text'           => '*Status indikerer en bruker som har vært <code>påkoblet/frakoblet</code> de siste 5 minuttene.',
+            'status_text'           => 'Status indikerer en bruker som har vært påkoblet/frakoblet de siste 5 minuttene.',
             'profile_photo'         => 'Profilbilde',
             'create_user'           => 'Opprett bruker',
             'edit_user'             => 'Rediger bruker',

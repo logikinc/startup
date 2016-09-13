@@ -14,7 +14,6 @@
                 <div class="panel-heading">{{ trans('startup.pages.admin_users.title') }}</div>
 
                 <div class="panel-body">
-                    <small>{!! trans('startup.pages.admin_users.status_text') !!}</small>            
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -22,7 +21,7 @@
                                     <th>{{ trans('startup.pages.admin_users.profile_photo') }}</th>
                                     <th>{{ trans('startup.name') }}</th>
                                     <th>{{ trans('startup.activated') }}</th>
-                                    <th>{{ trans('startup.status') }}*</th>
+                                    <th>{{ trans('startup.status') }}(<a href="#" data-toggle="tooltip" title="{!! trans('startup.pages.admin_users.status_text') !!}">?</a>)</th>
                                     <th>{{ trans('startup.role') }}</th>
                                     <th>{{ trans('startup.created') }}</th>
                                 </tr>
