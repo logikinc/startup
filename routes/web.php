@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/setlang/{lang}', function($lang)
+{
+    Session::put('locale', $lang);
+    return redirect()->back();
+});
+
 Auth::routes();
 
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
