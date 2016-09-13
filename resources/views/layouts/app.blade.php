@@ -48,16 +48,37 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                <li class="{{ set_active(['/', '/']) }}"><a href="{{ url('/') }}">Home</a></li>
+                <li class="{{ set_active(['/', '/']) }}"><a href="{{ url('/') }}">{{ trans('startup.nav.front.home') }}</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ trans('startup.nav.front.language') }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/setlang/en') }}">
+                                      @if ( session()->get('locale') === 'en') <i class="fa fa-check" aria-hidden="true"></i> @endif  {{ trans('startup.english') }}
+                                    </a>  
+                                 </li>                                 
+                                <li>
+                                    <a href="{{ url('/setlang/no') }}">
+                                    @if ( session()->get('locale') === 'no') <i class="fa fa-check" aria-hidden="true"></i> @endif {{ trans('startup.norwegian') }}
+                                    </a>  
+                                 </li>  
+                            </ul>
+                        </li>    
+                    
                     @if (Auth::guest())
-                        <li class="{{ set_active(['login', 'login']) }}"><a href="{{ url('/login') }}">Login</a></li>
-                        <li class="{{ set_active(['register', 'register']) }}"><a href="{{ url('/register') }}">Register</a></li>
+                        <li class="{{ set_active(['login', 'login']) }}"><a href="{{ url('/login') }}">{{ trans('startup.nav.front.login') }}</a></li>
+                        <li class="{{ set_active(['register', 'register']) }}"><a href="{{ url('/register') }}">{{ trans('startup.nav.front.register') }}</a></li>
                     @else
+                    
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <img src="/uploads/avatars/{{ Auth::user()->profile_photo }}" width="30" height="30" class="img-circle"> 
@@ -68,13 +89,13 @@
                                 
                                 @hasrole('User')
                                 <li>
-                                    <a href="{{ url('/profile') }}">Profile</a>
+                                    <a href="{{ url('/profile') }}">{{ trans('startup.nav.front.profile') }}</a>
                                 </li> 
                                 @endhasrole
                                 
                                 @hasrole('Moderator')
                                 <li>
-                                    <a href="{{ url('/admin') }}">Admin</a>
+                                    <a href="{{ url('/admin') }}">{{ trans('startup.nav.front.admin') }}</a>
                                 </li>   
                                 @endhasrole
                                 
@@ -82,7 +103,7 @@
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Logout
+                                        {{ trans('startup.nav.front.logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -102,11 +123,11 @@
  <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
       <p class="navbar-text pull-left">{{ config('app.name', 'Laravel') }} -
-           Built with <i class="fa fa-coffee" aria-hidden="true"></i> and <i class="fa fa-heart" aria-hidden="true"></i>
+           {{ trans('startup.built_with') }} <i class="fa fa-coffee" aria-hidden="true"></i> {{ trans('startup.and') }} <i class="fa fa-heart" aria-hidden="true"></i>
       </p>
       
       <a href="{{ config('app.url', 'http://localhost') }}" class="navbar-text pull-right">
-      Version 1.1</a>
+      {{ trans('startup.version') }} 1.1</a>
     </div>
     
     

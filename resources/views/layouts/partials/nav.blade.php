@@ -1,6 +1,6 @@
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Settings</div>
+                <div class="panel-heading">{{ trans('startup.nav.profile.settings') }}</div>
 
                 <div class="admin-sidebar">    
                     <div class="admin-usermenu">
@@ -8,12 +8,12 @@
 						<li class="{{ set_active(['profile', 'profile']) }}">
 							<a href="{{ url('/profile') }}">
 							<i class="fa fa-user"></i>
-							Profile </a>
+							{{ trans('startup.nav.profile.profile') }} </a>
 						</li>
 						<li class="{{ set_active(['profile/security', 'profile/security']) }}">
 							<a href="{{ url('/profile/security') }}">
 							<i class="fa fa-key"></i>
-							Security </a>
+							{{ trans('startup.nav.profile.security') }} </a>
 						</li>						
 					</ul>
 					</div>
