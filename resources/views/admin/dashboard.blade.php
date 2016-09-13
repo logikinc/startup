@@ -11,10 +11,10 @@
        
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_dashboard.title') }}</div>
 
                 <div class="panel-body">
-                    You are now viewing the admin section!
+                   {{ trans('startup.pages.admin_dashboard.welcome') }}
                 </div>
             </div>
         </div>

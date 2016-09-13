@@ -11,16 +11,16 @@
 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Uploads
+                <div class="panel-heading">{{ trans('startup.pages.admin_uploads.title') }}
                     <div class="pull-right">
                         
                             <button type="button" class="btn btn-success btn-xs"
                                     data-toggle="modal" data-target="#modal-folder-create">
-                              <i class="fa fa-plus-circle"></i> New Folder
+                              <i class="fa fa-plus-circle"></i> {{ trans('startup.pages.admin_uploads.new_folder') }}
                             </button>
                             <button type="button" class="btn btn-primary btn-xs"
                                     data-toggle="modal" data-target="#modal-file-upload">
-                              <i class="fa fa-upload"></i> Upload
+                              <i class="fa fa-upload"></i> {{ trans('startup.pages.admin_uploads.upload') }}
                             </button>    
                         
                     </div>                
@@ -37,17 +37,17 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Files <small class="pull-right">All files will be stored in <code>public/uploads</code> folder</small></div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_uploads.title') }} <small class="pull-right">{!! trans('startup.pages.admin_uploads.uploads_message') !!}</small></div>
                     <div class="panel-body">
                         <div class="table-responsive">
                         <table class="table">
                           <thead>
                             <tr>
-                              <th>Name</th>
-                              <th>Type</th>
-                              <th>Date</th>
-                              <th>Size</th>
-                              <th data-sortable="false">Actions</th>
+                              <th>{{ trans('startup.name') }}</th>
+                              <th>{{ trans('startup.type') }}</th>
+                              <th>{{ trans('startup.date') }}</th>
+                              <th>{{ trans('startup.size') }}</th>
+                              <th data-sortable="false">{{ trans('startup.action') }}</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -59,7 +59,7 @@
                                     {{ $name }}
                                   </a>
                                 </td>
-                                <td>Folder</td>
+                                <td>{{ trans('startup.folder') }}</td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>

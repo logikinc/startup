@@ -11,7 +11,7 @@
        
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Settings</div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_settings.settings') }}</div>
 
                 <div class="panel-body">
 
@@ -21,16 +21,16 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Activity log</div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_activity.activity_log') }}</div>
 
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Time</th>
-                                    <th>Activity</th>
-                                    <th>Who</th>
+                                    <th>{{ trans('startup.time') }}</th>
+                                    <th>{{ trans('startup.pages.admin_activity.activity') }}</th>
+                                    <th>{{ trans('startup.pages.admin_activity.who') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,7 +38,7 @@
                                 
                                     @foreach ($activitys as $activity)
                                  <tr>
-                                    <td>{{ $activity->updated_at->diffForHumans() }}</td>                
+                                    <td>{{ $activity->updated_at->format('d-m-Y H:i') }}</td>                
                                     <td>{!! $activity->description !!}</td> 
                                     <td>@if(is_null($activity->causer))
                                     Register form
@@ -52,7 +52,7 @@
                                 @endif
                             </tbody>
                         </table>
-                        </div>
+                        </div>  
                         {{ $activitys->links() }}
                     </div>  
                 </div>

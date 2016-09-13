@@ -6,14 +6,14 @@
         <button type="button" class="close" data-dismiss="modal">
           ×
         </button>
-        <h4 class="modal-title">Image Preview</h4>
+        <h4 class="modal-title">{{ trans('startup.pages.admin_uploads.image_prew') }}</h4>
       </div>
       <div class="modal-body">
         <img id="preview-image" src="x" class="img-responsive">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">
-         <i class="fa fa-close" aria-hidden="true"></i> Cancel
+         <i class="fa fa-close" aria-hidden="true"></i> {{ trans('startup.cancel') }}
         </button>
       </div>
     </div>

@@ -11,16 +11,16 @@
        
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Permissions</div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_permissions.title') }}</div>
 
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Created</th>
+                                    <th>{{ trans('startup.id') }}</th>
+                                    <th>{{ trans('startup.name') }}</th>
+                                    <th>{{ trans('startup.created') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>{{ $permission->id }}</td>
                                     <td><a href="/admin/permissions/{{ $permission->id }}/edit">{{ $permission->name }}</a></td>
-                                    <td>{{ $permission->created_at->diffForHumans() }}</td>
+                                    <td>{{ $permission->created_at->format('d-m-Y H:i') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -39,7 +39,7 @@
                     </div>                    
                     <!-- Create Permission modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-plus-circle"></i> Create permission
+                      <i class="fa fa-plus-circle"></i> {{ trans('startup.pages.admin_permissions.create_permissions') }}
                     </button>
                 </div>
             </div>
@@ -53,14 +53,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create permission</h4>
+        <h4 class="modal-title" id="myModalLabel">{{ trans('startup.pages.admin_permissions.create_permissions') }}</h4>
       </div>
       <div class="modal-body">
           
                   {!! Form::open(array('route' => 'permissions.store','method'=>'POST', 'class' => 'form-horizontal')) !!}
 
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label for="name" class="col-sm-3 control-label">Name</label>
+                        <label for="name" class="col-sm-3 control-label">{{ trans('startup.name') }}</label>
                         <div class="col-sm-6">
                     {!! Form::text('name', null, array('class' => 'form-control')) !!}
                             @if ($errors->has('name'))
@@ -70,8 +70,8 @@
                 </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Create permission</button>          
-        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Close</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{ trans('startup.pages.admin_permissions.create_permissions') }}</button>          
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> {{ trans('startup.close') }}</button>
         
         {!! Form::close() !!}
         

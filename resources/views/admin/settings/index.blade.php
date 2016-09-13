@@ -11,7 +11,7 @@
        
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Settings
+                <div class="panel-heading">{{ trans('startup.pages.admin_settings.settings') }}
                     <div class="pull-right">
                          <small>
                              <code><?php echo $_SERVER['HTTP_HOST'] ?></code> 
@@ -28,14 +28,14 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Global <small class="pull-right">These settings are taken from <code>config\app.php</code></small></div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_settings.global') }} <small class="pull-right">{!! trans('startup.pages.admin_settings.settings_text') !!}</small></div>
 
                 <div class="panel-body">
                     
                 {!! Form::model($config, ['method' => 'put','route' => ['settings.updateSettings'], 'class' => 'form-horizontal']) !!}   
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-sm-3 control-label">Title</label>
+                            <label for="name" class="col-sm-3 control-label">{{ trans('startup.pages.admin_settings.title') }}</label>
                             <div class="col-sm-6">
                         {!! Form::text('name', null, array('class' => 'form-control')) !!}
                                 @if ($errors->has('name'))
@@ -45,7 +45,7 @@
                     </div>
     
                     <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
-                            <label for="url" class="col-sm-3 control-label">URL</label>
+                            <label for="url" class="col-sm-3 control-label">{{ trans('startup.pages.admin_settings.url') }}</label>
                             <div class="col-sm-6">
                         {!! Form::text('url', null, array('class' => 'form-control')) !!}
                                 @if ($errors->has('url'))
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('timezone') ? ' has-error' : '' }}">
-                            <label for="timezone" class="col-sm-3 control-label">URL</label>
+                            <label for="timezone" class="col-sm-3 control-label">{{ trans('startup.pages.admin_settings.timezone') }}</label>
                             <div class="col-sm-6">
                         {!! Form::text('timezone', null, array('class' => 'form-control')) !!}
                                 @if ($errors->has('timezone'))
@@ -66,7 +66,7 @@
   
                           <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
-                              <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
+                              <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{ trans('startup.update') }}</button>
                             </div>
                           </div>    
                     </div>

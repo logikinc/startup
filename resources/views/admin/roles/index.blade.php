@@ -11,17 +11,17 @@
        
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Roles</div>
+                <div class="panel-heading">{{ trans('startup.roles')  }}</div>
 
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Permissions</th>
-                                    <th>Created</th>
+                                    <th>{{ trans('startup.id')  }}</th>
+                                    <th>{{ trans('startup.name')  }}</th>
+                                    <th>{{ trans('startup.permissions')  }}</th>
+                                    <th>{{ trans('startup.created')  }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,7 +34,7 @@
                                   <label class="label label-primary">{{ $lol->name }}</label>
                                     @endforeach    
                                     </td>
-                                    <td>{{ $role->created_at->diffForHumans() }}</td>
+                                    <td>{{ $role->created_at->format('d-m-Y H:i') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -45,7 +45,7 @@
                     </div>
                     <!-- Create Role modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-plus-circle"></i> Create Role
+                      <i class="fa fa-plus-circle"></i> {{ trans('startup.pages.admin_roles.create_role')  }}
                     </button>
                 </div>
             </div>
@@ -59,13 +59,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create role</h4>
+        <h4 class="modal-title" id="myModalLabel">{{ trans('startup.pages.admin_roles.create_role')  }}</h4>
       </div>
       <div class="modal-body">
                   {!! Form::open(array('route' => 'roles.store','method'=>'POST', 'class' => 'form-horizontal')) !!}
 
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label for="name" class="col-sm-3 control-label">Name</label>
+                        <label for="name" class="col-sm-3 control-label">{{ trans('startup.name')  }}</label>
                         <div class="col-sm-6">
                     {!! Form::text('name', null, array('class' => 'form-control')) !!}
                             @if ($errors->has('name'))
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('permission') ? ' has-error' : '' }}">
-                        <label for="permission" class="col-sm-3 control-label">Permission</label>
+                        <label for="permission" class="col-sm-3 control-label">{{ trans('startup.permissions')  }}</label>
                         <div class="col-sm-6">
                 @foreach($permission as $value)
                 	<label>{{ Form::checkbox('permission[]', $value->name, false, array('class' => 'name')) }}
@@ -89,8 +89,8 @@
                 </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Create role</button>          
-        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Close</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{ trans('startup.pages.admin_roles.create_role')  }}</button>          
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> {{ trans('startup.close')  }}</button>
         
         {!! Form::close() !!}
         

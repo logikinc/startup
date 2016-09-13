@@ -10,12 +10,12 @@
           <button type="button" class="close" data-dismiss="modal">
             ×
           </button>
-          <h4 class="modal-title">Upload New File</h4>
+          <h4 class="modal-title">{{ trans('startup.pages.admin_uploads.upload_new') }}</h4>
         </div>
         <div class="modal-body">
           <div class="form-group">
             <label for="file" class="col-sm-3 control-label">
-              File
+              {{ trans('startup.pages.admin_uploads.file') }}
             </label>
             <div class="col-sm-8">
               <input type="file" id="file" name="file">
@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
             <label for="file_name" class="col-sm-3 control-label">
-              Optional Filename
+              {{ trans('startup.pages.admin_uploads.optional') }}
             </label>
             <div class="col-sm-4">
               <input type="text" id="file_name" name="file_name"
@@ -33,10 +33,10 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">
-            <i class="fa fa-upload"></i> Upload File
+            <i class="fa fa-upload"></i> {{ trans('startup.pages.admin_uploads.upload_file') }}
           </button>            
           <button type="button" class="btn btn-default" data-dismiss="modal">
-            <i class="fa fa-close" aria-hidden="true"></i> Cancel
+            <i class="fa fa-close" aria-hidden="true"></i> {{ trans('startup.cancel') }}
           </button>
         </div>
       </form>

@@ -11,20 +11,20 @@
        
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Users</div>
+                <div class="panel-heading">{{ trans('startup.pages.admin_users.title') }}</div>
 
                 <div class="panel-body">
-                    <small>*The Status table header indicates a user <code>online/offline</code> for the last 5 minutes</small>            
+                    <small>{!! trans('startup.pages.admin_users.status_text') !!}</small>            
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Profile Photo</th>
-                                    <th>Name</th>
-                                    <th>Activated</th>
-                                    <th>Status*</th>
-                                    <th>Role</th>
-                                    <th>Created</th>
+                                    <th>{{ trans('startup.pages.admin_users.profile_photo') }}</th>
+                                    <th>{{ trans('startup.name') }}</th>
+                                    <th>{{ trans('startup.activated') }}</th>
+                                    <th>{{ trans('startup.status') }}*</th>
+                                    <th>{{ trans('startup.role') }}</th>
+                                    <th>{{ trans('startup.created') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,16 +34,16 @@
                                     <td><a href="/admin/users/{{ $user->id }}/edit">{{ $user->name }}</a></td>
                                     <td>
                                     @if ($user->activated === 1)
-                                        <label class="label label-success">Yes</label>
+                                        <label class="label label-success">{{ trans('startup.yes') }}</label>
                                     @else
-                                        <label class="label label-danger">No</label>
+                                        <label class="label label-danger">{{ trans('startup.no') }}</label>
                                     @endif
                                     </td>
                                     <th>
                                         @if($user->isOnline())
-                                           <label class="label label-success">Online</label>
+                                           <label class="label label-success">{{ trans('startup.online') }}</label>
                                         @else
-                                        <label class="label label-danger">Offline</label>
+                                        <label class="label label-danger">{{ trans('startup.offline') }}</label>
                                         @endif
                                     </th>
                                     <td>
@@ -51,7 +51,7 @@
                                         <label class="label label-primary">{{ $v->name }}</label>
                                     @endforeach    
                                     </td>
-                                    <td>{{ $user->created_at->diffForHumans() }}</td>
+                                    <td>{{ $user->created_at->format('d-m-Y H:i') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -62,7 +62,7 @@
                     </div>
                     <!-- Create User modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-plus-circle"></i> Create User
+                      <i class="fa fa-plus-circle"></i> {{ trans('startup.pages.admin_users.create_user') }}
                     </button>
                 </div>
             </div>
@@ -76,14 +76,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create User</h4>
+        <h4 class="modal-title" id="myModalLabel">{{ trans('startup.pages.admin_users.create_user') }}</h4>
       </div>
       <div class="modal-body">
                   {!! Form::open(array('route' => 'users.store','method'=>'POST', 'class' => 'form-horizontal')) !!}
 	
  
                  <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                         <label for="name" class="col-sm-3 control-label">Name</label>
+                         <label for="name" class="col-sm-3 control-label">{{ trans('startup.name') }}</label>
                          <div class="col-sm-8">
                      {!! Form::text('name', null, array('class' => 'form-control')) !!}
                              @if ($errors->has('name'))
@@ -93,7 +93,7 @@
                  </div>
  
                  <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                         <label for="email" class="col-sm-3 control-label">Email</label>
+                         <label for="email" class="col-sm-3 control-label">{{ trans('startup.email') }}</label>
                          <div class="col-sm-8">
                      {!! Form::text('email', null, array('class' => 'form-control')) !!}
                              @if ($errors->has('email'))
@@ -103,21 +103,21 @@
                  </div>
   
                   <div class="form-group">
-                         <label for="password" class="col-sm-3 control-label">Password</label>
+                         <label for="password" class="col-sm-3 control-label">{{ trans('startup.password') }}</label>
                              <div class="col-sm-8">
                               {!! Form::password('password', array('class' => 'form-control')) !!}
                              </div>
                  </div>
  
                   <div class="form-group">
-                         <label for="password_confirm" class="col-sm-3 control-label">Confirm Password</label>
+                         <label for="password_confirm" class="col-sm-3 control-label">{{ trans('startup.password_confirm') }}</label>
                              <div class="col-sm-8">
                      {!! Form::password('password_confirm', array('class' => 'form-control')) !!}
                              </div>
                  </div>            
                      
                  <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">
-                         <label for="roles" class="col-sm-3 control-label">Roles</label>
+                         <label for="roles" class="col-sm-3 control-label">{{ trans('startup.roles') }}</label>
                              <div class="col-sm-8">
                          {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
                              @if ($errors->has('roles'))
@@ -127,8 +127,8 @@
                  </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Create user</button>          
-        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Close</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{ trans('startup.pages.admin_users.create_user') }}</button>          
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> {{ trans('startup.close') }}</button>
         
         {!! Form::close() !!}
         

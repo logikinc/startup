@@ -11,7 +11,7 @@
 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Backup
+                <div class="panel-heading">{{ trans('startup.pages.admin_backup.backup') }}     
                     </div> 
                     <div class="panel-body">
                     
@@ -21,17 +21,17 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Backupfiles
+                <div class="panel-heading">{{ trans('startup.pages.admin_backup.backupfiles') }} 
                     <div class="pull-right">
                                 {!! Form::open(array('route' => 'storebackup','method'=>'POST')) !!}                         
                             <button type="submit" class="btn btn-success btn-xs">
-                              <i class="fa fa-plus-circle"></i> Take backup
+                              <i class="fa fa-plus-circle"></i> {{ trans('startup.pages.admin_backup.take_backup') }} 
                             </button>
                                 {!! Form::close() !!} 
                     </div>                 
                 </div>
                     <div class="panel-body">
-                        <p><small>All files will be stored in <code>public/backups</code> folder. This is not the most secure place to stor backups. So change this to S3 or to another location.</small></p>
+                        <p><small>{!! trans('startup.pages.admin_backup.message') !!} </small></p>
                   <ul class="breadcrumb">
                     @foreach ($breadcrumbs as $path => $disp)
                       <li><a href="/admin/settings/backup?folder={{ $path }}">{{ $disp }}</a></li>
@@ -42,11 +42,11 @@
                         <table class="table">
                           <thead>
                             <tr>
-                              <th>Name</th>
-                              <th>Type</th>
-                              <th>Date</th>
-                              <th>Size</th>
-                              <th data-sortable="false">Actions</th>
+                              <th>{!! trans('startup.name') !!}</th>
+                              <th>{!! trans('startup.type') !!}</th>
+                              <th>{!! trans('startup.date') !!}</th>
+                              <th>{!! trans('startup.size') !!}</th>
+                              <th data-sortable="false">{!! trans('startup.action') !!}</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -58,7 +58,7 @@
                                     {{ $name }}
                                   </a>
                                 </td>
-                                <td>Folder</td>
+                                <td>{!! trans('startup.folder') !!}</td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>
