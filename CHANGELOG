@@ -2,6 +2,10 @@
 
 All Notable changes to StartUp 5.3 will be documented in this file
 
+## v.1.2 - 14.09.2016
+- New feature, Authy 2-factor Authentication
+- Language support.
+
 ## v.1.1 - 11.09.2016
 - New feature, can now se online users for the last 5 minutes
 - Updated admin backup section, now backup both files and sql into one zip file.
