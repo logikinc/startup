@@ -20,10 +20,12 @@ user profile,admin backend and much more.
 * Bootstrap 3
 * Font Awesome
 * Upload Avatar
-* Activity log
+* Activity log in admin settings section.
 * User e-mail activation.
-* Backup SQL database from admin settings section.
-* File Uploads
+* Backup SQL database and files from admin settings section.
+* File Uploads from admin section.
+* Authy 2-factor Authentication
+* Language support
 
 ## Requirements
 
@@ -36,7 +38,7 @@ Before you proceed make sure your server meets the following requirements:
 ## How to Install
 
 1. Clone this repository: ```git clone https://github.com/w00p/startup.git ``` 
-2. If you want to specify wich folder to clone to use: ```git clone <project url> my-folder```
+2. If you want to specify wich folder to clone to use: ```git clone https://github.com/w00p/startup.git my-folder```
 3. ```composer install```
 4. Create .env file (.env.example included, just copy that one to .env)
 5. ```php artisan key:generate```
@@ -60,6 +62,8 @@ All new user registered is getting default User role.
 * [larapack/config-writer](https://github.com/spatie/laravel-activitylog)
 * [spatie/db-dumper](https://github.com/spatie/db-dumper)
 * [dflydev/dflydev-apache-mime-types](https://github.com/dflydev/dflydev-apache-mime-types)
+* [srmklive/authy](https://github.com/srmklive/laravel-twofactor-authentication)
+* [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ## Screenshots
 comming soon..
