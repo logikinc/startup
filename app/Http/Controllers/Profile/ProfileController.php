@@ -35,7 +35,11 @@ class ProfileController extends Controller
      */
     public function security()
     {
-        return view('profile.security');
+        $user = auth()->user();
+        
+        $twofactor_enabled = authy()->isEnabled($user);  
+        
+        return view('profile.security', compact('twofactor_enabled'));
     }
 
     /**
