@@ -304,17 +304,17 @@ a {
 							<table width="100%" cellpadding="0" cellspacing="0">
 								<tr>
 									<td class="content-block">
-										Please activate your account.
+										{{ trans('startup.emails.activation.title') }}
 									</td>
 								</tr>
 								<tr>
 									<td class="content-block">
-										We may need to send you critical information about our service and it is important that we have an accurate email address.
+										{{ trans('startup.emails.activation.message') }}
 									</td>
 								</tr>
 								<tr>
 									<td class="content-block" itemprop="handler" itemscope itemtype="http://schema.org/HttpActionHandler">
-										<a href="{{ $body }}" class="btn-primary" itemprop="url">Activate account</a>
+										<a href="{{ $body }}" class="btn-primary" itemprop="url">{{ trans('startup.emails.activation.button') }}</a>
 									</td>
 								</tr>
 								<tr>

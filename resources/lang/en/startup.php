@@ -233,6 +233,15 @@ return [
         ],
     ],
 
+    /* Emails */
+    'emails' => [
+        'activation' => [
+            'title'             => 'Please activate your account.',
+            'message'           => 'We may need to send you critical information about our service and it is important that we have an accurate email address.',
+            'button'            => 'Activate account',
+        ],
+    ],
+
     /* Footer */
     'built_with'    => 'Built with',
     'and'           => 'and',

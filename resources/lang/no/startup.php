@@ -233,8 +233,19 @@ return [
         ],
     ],
 
+    /* Emails */
+    'emails' => [
+        'activation' => [
+            'title'             => 'Vennligst aktiver din konto.',
+            'message'           => 'Vi må kanskje sende deg viktig informasjon om vår tjeneste, og det er viktig at vi har en nøyaktig e-postadresse.',
+            'button'            => 'Aktiver konto',
+        ],
+    ],
+
     /* Footer */
     'built_with'    => 'Laget med',
     'and'           => 'og',
     'version'       => 'Versjon',
 ];
+
+
