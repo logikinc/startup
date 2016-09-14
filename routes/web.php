@@ -19,6 +19,10 @@ Route::get('/setlang/{lang}', function ($lang) {
 
 Auth::routes();
 
+Route::get('auth/token','Auth\TwoFactorController@showTokenForm');
+Route::post('auth/token','Auth\TwoFactorController@validateTokenForm');
+Route::post('auth/two-factor','Auth\TwoFactorController@setupTwoFactorAuth');
+
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
 
 Route::get('/', 'HomeController@index');
