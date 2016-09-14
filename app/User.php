@@ -2,12 +2,13 @@
 
 namespace App;
 
+use Cache;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Srmklive\Authy\Auth\TwoFactor\Authenticatable as TwoFactorAuthenticatable;
 use Srmklive\Authy\Contracts\Auth\TwoFactor\Authenticatable as TwoFactorAuthenticatableContract;
-use Cache;
+
 class User extends Authenticatable implements TwoFactorAuthenticatableContract
 {
     use Notifiable, TwoFactorAuthenticatable;
@@ -30,9 +31,9 @@ class User extends Authenticatable implements TwoFactorAuthenticatableContract
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     public function isOnline()
     {
-        return Cache::has('user-is-online-' . $this->id);
-    }    
+        return Cache::has('user-is-online-'.$this->id);
+    }
 }
