@@ -89,6 +89,7 @@ class LoginController extends Controller
     {
         $this->guard()->logout();
         $request->session()->put('authy:auth:id', $user->id);
+
         return redirect(url('auth/token'));
-    }  
+    }
 }
