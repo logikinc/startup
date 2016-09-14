@@ -7,6 +7,9 @@ user profile,admin backend and much more.
 
 [![StyleCI](https://styleci.io/repos/67250440/shield)](https://styleci.io/repos/67250440)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/w00p/startup/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/w00p/startup.svg)](https://github.com/w00p/startup/issues)
+[![GitHub forks](https://img.shields.io/github/forks/w00p/startup.svg)](https://github.com/w00p/startup/network)
+[![GitHub stars](https://img.shields.io/github/stars/w00p/startup.svg)](https://github.com/w00p/startup/stargazers)
 
 ## Features
 
