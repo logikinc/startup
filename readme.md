@@ -1,6 +1,6 @@
 ## StartUp 5.3
 
-<img src="https://raw.githubusercontent.com/w00p/startup/master/public/uploads/readme.png" alt="StartUp 5.3">
+<img src="https://raw.githubusercontent.com/w00p/startup/3e7392c5c6428af443eb9a494d206f93ebc5f8b9/public/uploads/readme.png" alt="StartUp 5.3">
 
 StartUp 5.3 is a Open Source StartUp Boilerplate built with Laravel 5.3. It is built with the awesome Laravel Framework. It includes roles & permissions,
 user profile,admin backend and much more.
