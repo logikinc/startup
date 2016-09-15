@@ -69,7 +69,7 @@ All new user registered is getting default User role.
 * [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ## Screenshots
-comming soon..
+[Click here for screenshots](https://github.com/w00p/startup/tree/master/public/uploads/screenshots)
 
 ## Changelog
 
