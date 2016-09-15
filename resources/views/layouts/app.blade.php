@@ -11,8 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     
     <!-- Styles Authy-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/authy-form-helpers/2.3/flags.authy.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/authy-form-helpers/2.3/form.authy.css" />
+    <link rel="stylesheet" href="/css/flags.authy.css" />
+    <link rel="stylesheet" href="/css/form.authy.css" />
 
     <!-- Styles App-->
     <link href="/css/app.css" rel="stylesheet">
@@ -140,7 +140,7 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="/js/startup.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/authy-form-helpers/2.3/form.authy.js"></script>
+    <script src="/js/form.authy.js"></script>
     <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip(); 

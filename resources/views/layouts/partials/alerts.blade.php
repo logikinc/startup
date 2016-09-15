@@ -1,6 +1,6 @@
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/toastr.css">
 
 <script>
 
