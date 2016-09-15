@@ -181,6 +181,10 @@ return [
             'take_backup'           => 'Ta backup',
             'message'               => 'Alle filer blir lagret i public/backups mappen. Dette er ikke den mest skikre plassen å lagre backups. Endre dette til S3 eller annen mappe.',
         ],
+        '404' => [
+            '404'                   => 'Feil 404: Siden du leter etter kunne ikke bli funnet.',
+            'button'                => 'Gå hjem',
+        ],        
     ],
 
     /* NAV */
@@ -247,3 +251,5 @@ return [
     'and'           => 'og',
     'version'       => 'Versjon',
 ];
+
+

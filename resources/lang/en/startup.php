@@ -181,6 +181,10 @@ return [
             'take_backup'           => 'Take Backup',
             'message'               => 'All files will be stored in public/backups folder. This is not the most secure place to stor backups. So change this to S3 or to another location.',
         ],
+        '404' => [
+            '404'                   => 'Error 404: The page you are looking for could not be found.',
+            'button'                => 'Return home',
+        ],           
     ],
 
     /* NAV */
