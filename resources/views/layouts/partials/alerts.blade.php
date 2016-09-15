@@ -1,27 +1,23 @@
-@if ( session()->has('info'))
-    <div class="alert autoclose alert-info" role-"alert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        {{ session()->get('info') }}
-    </div>
-@endif
+<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
-@if ( session()->has('danger'))
-    <div class="alert autoclose alert-danger" role-"alert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        {{ session()->get('danger') }}
-    </div>
-@endif
+<script>
 
-@if ( session()->has('success'))
-	<div class="alert autoclose alert-success">
-		<button type="button" class="close" data-dismiss="alert">x</button>
-		{{ session()->get('success') }}
-	</div>
-@endif
+  @if(Session::has('success'))
+  		toastr.success("{{ Session::get('success') }}");
+  @endif
 
-@if ( session()->has('warning'))
-	<div class="alert autoclose alert-warning">
-		<button type="button" class="close" data-dismiss="alert">x</button>
-		{{ session()->get('warning') }}
-	</div>
-	@endif
+  @if(Session::has('info'))
+  		toastr.info("{{ Session::get('info') }}");
+  @endif
+
+  @if(Session::has('warning'))
+  		toastr.warning("{{ Session::get('warning') }}");
+  @endif
+
+  @if(Session::has('error'))
+  		toastr.error("{{ Session::get('error') }}");
+  @endif
+
+</script>
