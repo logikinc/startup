@@ -184,7 +184,7 @@ return [
         '404' => [
             '404'                   => 'Feil 404: Siden du leter etter kunne ikke bli funnet.',
             'button'                => 'Gå hjem',
-        ],        
+        ],
     ],
 
     /* NAV */
@@ -251,5 +251,3 @@ return [
     'and'           => 'og',
     'version'       => 'Versjon',
 ];
-
-
