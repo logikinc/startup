@@ -124,7 +124,7 @@ class UploadsManager
             $this->disk->directories($folder),
             $this->disk->files($folder)
         );
-        if (!empty($filesFolders)) {
+        if (! empty($filesFolders)) {
             return 'Directory must be empty to delete it.';
         }
 
@@ -134,7 +134,7 @@ class UploadsManager
     public function deleteFile($path)
     {
         $path = $this->cleanFolder($path);
-        if (!$this->disk->exists($path)) {
+        if (! $this->disk->exists($path)) {
             return 'File does not exist.';
         }
 
