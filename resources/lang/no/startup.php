@@ -247,5 +247,3 @@ return [
     'and'           => 'og',
     'version'       => 'Versjon',
 ];
-
-
