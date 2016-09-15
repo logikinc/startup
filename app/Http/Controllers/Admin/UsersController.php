@@ -82,7 +82,7 @@ class UsersController extends Controller
         ]);
 
         $input = $request->all();
-        if (!empty($input['password'])) {
+        if (! empty($input['password'])) {
             $input['password'] = Hash::make($input['password']);
         } else {
             $input = array_except($input, ['password']);
