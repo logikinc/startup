@@ -31,7 +31,7 @@ class TwoFactorController extends Controller
     {
         $this->validate($request, ['token' => 'required']);
 
-        if (!session('authy:auth:id')) {
+        if (! session('authy:auth:id')) {
             return redirect(url('login'));
         }
 
@@ -104,7 +104,7 @@ class TwoFactorController extends Controller
         );
 
         try {
-            authy()->register($user, !empty($input['sms']) ? true : false);
+            authy()->register($user, ! empty($input['sms']) ? true : false);
 
             $user->save();
         } catch (Exception $e) {

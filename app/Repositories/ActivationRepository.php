@@ -25,7 +25,7 @@ class ActivationRepository
     {
         $activation = $this->getActivation($user);
 
-        if (!$activation) {
+        if (! $activation) {
             return $this->createToken($user);
         }
 
