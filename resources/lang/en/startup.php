@@ -184,7 +184,7 @@ return [
         '404' => [
             '404'                   => 'Error 404: The page you are looking for could not be found.',
             'button'                => 'Return home',
-        ],           
+        ],
     ],
 
     /* NAV */
