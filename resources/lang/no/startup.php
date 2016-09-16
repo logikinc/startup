@@ -87,7 +87,7 @@ return [
         ],
         'contactform' => [
             'created'                   => 'Takk for din melding. Vi kommer snart tilbake til deg med et svar',
-        ],             
+        ],
     ],
 
     /* Languages */
@@ -109,7 +109,7 @@ return [
             'subject'                   => 'Emne',
             'message'                   => 'Melding',
             'send'                      => 'Send melding',
-        ],           
+        ],
         'profile' => [
             'title'                 => 'Min Profil',
             'profile_photo'         => 'Profilbilde',
@@ -193,14 +193,14 @@ return [
         '404' => [
             '404'                   => 'Feil 404: Siden du leter etter kunne ikke bli funnet.',
             'button'                => 'Gå hjem',
-        ],        
+        ],
     ],
 
     /* NAV */
     'nav' => [
         'front' => [
             'home'          => 'Hjem',
-            'contact'       => 'Kontakt',            
+            'contact'       => 'Kontakt',
             'login'         => 'Logg inn',
             'register'      => 'Registrer',
             'language'      => 'Språk',
@@ -258,7 +258,7 @@ return [
             'title'             => 'har sendt deg en ny melding fra kontaktskjema.',
             'subject'           => 'Emne',
             'message'           => 'Melding',
-        ],       
+        ],
     ],
 
     /* Footer */
@@ -266,5 +266,3 @@ return [
     'and'           => 'og',
     'version'       => 'Versjon',
 ];
-
-
