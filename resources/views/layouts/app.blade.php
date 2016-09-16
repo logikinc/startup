@@ -53,6 +53,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                 <li class="{{ set_active(['/', '/']) }}"><a href="{{ url('/') }}">{{ trans('startup.nav.front.home') }}</a></li>
+                <li class="{{ set_active(['contact', 'contact']) }}"><a href="{{ url('/contact') }}">{{ trans('startup.nav.front.contact') }}</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
