@@ -17,6 +17,9 @@ Route::get('/setlang/{lang}', function ($lang) {
     return redirect()->back();
 });
 
+Route::get('/contact', 'ContactController@getContact');
+Route::post('/contact', 'ContactController@postContact');
+
 Auth::routes();
 
 Route::get('auth/token', 'Auth\TwoFactorController@showTokenForm');
