@@ -85,6 +85,9 @@ return [
         'admin_backup' => [
             'created'                   => 'Backup ble vellykket opprettet',
         ],
+        'contactform' => [
+            'created'                   => 'Takk for din melding. Vi kommer snart tilbake til deg med et svar',
+        ],             
     ],
 
     /* Languages */
@@ -101,6 +104,12 @@ return [
             'read_role_moderator'       => 'Om du kan lese dette, da har du moderator rollen',
             'read_role_administrator'   => 'Om du kan lese dette, da har du administrator rollen',
         ],
+        'contact' => [
+            'title'                     => 'Kontaktskjema',
+            'subject'                   => 'Emne',
+            'message'                   => 'Melding',
+            'send'                      => 'Send melding',
+        ],           
         'profile' => [
             'title'                 => 'Min Profil',
             'profile_photo'         => 'Profilbilde',
@@ -184,13 +193,14 @@ return [
         '404' => [
             '404'                   => 'Feil 404: Siden du leter etter kunne ikke bli funnet.',
             'button'                => 'Gå hjem',
-        ],
+        ],        
     ],
 
     /* NAV */
     'nav' => [
         'front' => [
             'home'          => 'Hjem',
+            'contact'       => 'Kontakt',            
             'login'         => 'Logg inn',
             'register'      => 'Registrer',
             'language'      => 'Språk',
@@ -244,6 +254,11 @@ return [
             'message'           => 'Vi må kanskje sende deg viktig informasjon om vår tjeneste, og det er viktig at vi har en nøyaktig e-postadresse.',
             'button'            => 'Aktiver konto',
         ],
+        'contactform' => [
+            'title'             => 'har sendt deg en ny melding fra kontaktskjema.',
+            'subject'           => 'Emne',
+            'message'           => 'Melding',
+        ],       
     ],
 
     /* Footer */
@@ -251,3 +266,5 @@ return [
     'and'           => 'og',
     'version'       => 'Versjon',
 ];
+
+

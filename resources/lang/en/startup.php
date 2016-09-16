@@ -85,6 +85,9 @@ return [
         'admin_backup' => [
             'created'                   => 'Backup successfully created',
         ],
+        'contactform' => [
+            'created'                   => 'Thank you for your message. We will get back to you soon',
+        ],        
     ],
 
     /* Languages */
@@ -101,6 +104,12 @@ return [
             'read_role_moderator'       => 'If you can reed this, then you have the Moderator Role',
             'read_role_administrator'   => 'If you can reed this, then you have the Administrator Role',
         ],
+        'contact' => [
+            'title'                     => 'Contact Form',
+            'subject'                   => 'Subject',
+            'message'                   => 'Message',
+            'send'                      => 'Send Message',            
+        ],        
         'profile' => [
             'title'                 => 'My profile',
             'profile_photo'         => 'Profile Photo',
@@ -184,13 +193,14 @@ return [
         '404' => [
             '404'                   => 'Error 404: The page you are looking for could not be found.',
             'button'                => 'Return home',
-        ],
+        ],           
     ],
 
     /* NAV */
     'nav' => [
         'front' => [
             'home'          => 'Home',
+            'contact'       => 'Contact',
             'login'         => 'Login',
             'register'      => 'Register',
             'language'      => 'Language',
@@ -244,6 +254,11 @@ return [
             'message'           => 'We may need to send you critical information about our service and it is important that we have an accurate email address.',
             'button'            => 'Activate account',
         ],
+        'contactform' => [
+            'title'             => 'has send you a new message from contact form.',
+            'subject'           => 'Subject',
+            'message'           => 'Message',
+        ],          
     ],
 
     /* Footer */
